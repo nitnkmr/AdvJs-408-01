@@ -21,7 +21,7 @@ function addPlayer() {
      }
      cards.push(cardData)
     
-   if(FirstName.length>1 && LastName.length>1 && country.length>1 && score.length>1){
+   if(FirstName.length>1 && LastName.length>1 && country.length>1 && score!=""){
     let card=document.getElementById('outerCard')
     card.innerHTML+=`<div class="card" id="card${count}">
 <div class="firstname"><div class="name">${FirstName} ${LastName}</div> <div class="date">${day} ${monthNames[month]} ${year}</div></div>
@@ -49,18 +49,17 @@ function dltBtn(count){
 
 function addFive(count){
     let rating=document.getElementById(`rating${count}`)
-    if(Number(rating.innerText)>=0 && Number(rating.innerText)<95){
 
     rating.innerText=Number(rating.innerText)+5;
-    }
-    console.log(count);
+
 }
 function removeFive(count){
     let rating=document.getElementById(`rating${count}`)
-    if(Number(rating.innerText)>5){
-
-
+    if(Number(rating.innerText)>=5){
         rating.innerText=Number(rating.innerText)-5;
+    }
+    else{
+        rating.innerText="0";
     }
     
     
